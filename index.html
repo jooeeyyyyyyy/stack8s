@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stack8s - Sovereign AI orchestrated across every cloud. Deploy and manage AI workloads across multi-cloud infrastructure with unified Kubernetes control.">
+  <title>Stack8s - Sovereign AI Infrastructure Platform</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header" data-transparent="true">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="#" aria-label="Stack8s Home">
+          <img src="assets/stack8s-logo.svg" alt="Stack8s" width="32" height="40" />
+          <span class="header__logo-text">stack8s</span>
+        </a>
+      </div>
+      
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="#platform">Platform</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#industry">Industry</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#company">Company</a></li>
+        </ul>
+      </nav>
+      
+       <div class="header__actions">
+         <button class="btn btn-primary">Book a Demo</button>
+         <button class="mobile-menu-toggle" aria-label="Toggle menu">
+           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+           </svg>
+         </button>
+       </div>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-menu__close" aria-label="Close menu">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8L8 24M8 8L24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="mobile-menu__content">
+        <nav class="mobile-menu__nav">
+          <a href="#platform" class="mobile-menu__link">Platform</a>
+          <a href="#solutions" class="mobile-menu__link">Solutions</a>
+          <a href="#benefits" class="mobile-menu__link">Industry</a>
+          <a href="#resources" class="mobile-menu__link">Resources</a>
+          <a href="#company" class="mobile-menu__link">Company</a>
+        </nav>
+        <button class="btn btn-primary btn-large mobile-menu__cta">Book a Demo</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Section 1: Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__container">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__title-regular">Sovereign AI,</span>
+            <span class="hero__title-italic">orchestrated across</span>
+            <span class="hero__title-regular">every cloud.</span>
+          </h1>
+          
+          <p class="hero__subtitle">
+            The cloud-native platform for sovereign AI infrastructure. Deploy, manage, and scale 
+            AI workloads across any cloud, any region, with complete control and zero vendor lock-in.
+          </p>
+          
+          <div class="hero__ctas">
+            <button class="btn btn-primary btn-large">Book a Demo</button>
+            <a href="#platform" class="btn btn-secondary btn-large">Explore Platform</a>
+          </div>
+          <!-- hide hero__trust
+          <div class="hero__trust">
+            <p class="hero__trust-text">Powering AI infrastructure for enterprises, research institutions, and sovereign cloud providers worldwide</p>
+          </div>
+          -->
+        </div>
+          <p class="trusted-companies__label">COMPANIES THAT TRUST US</p>
+          
+          <div class="trusted-companies__logos-wrapper">
+            <div class="trusted-companies__logos">
+              <div class="trusted-logo">Dell</div>
+              <div class="trusted-logo">Stanford</div>
+              <div class="trusted-logo">Intel</div>
+              <div class="trusted-logo">ZILO</div>
+              <div class="trusted-logo">Basecamp Research</div>
+              <div class="trusted-logo">Canal+</div>
+              <div class="trusted-logo">Carnegie Mellon</div>
+              <div class="trusted-logo">Giotto.ai</div>
+              <div class="trusted-logo">Infosys</div>
+              <div class="trusted-logo">LG CNS</div>
+              <!-- Duplicates for seamless loop -->
+              <div class="trusted-logo">Dell</div>
+              <div class="trusted-logo">Stanford</div>
+              <div class="trusted-logo">Intel</div>
+              <div class="trusted-logo">ZILO</div>
+              <div class="trusted-logo">Basecamp Research</div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Cloud Integrations -->
+    <section class="cloud-integrations section-foreground" id="cloud-integrations">
+      <div class="section__container">
+        <div class="cloud-integrations__content">
+          <div class="cloud-integrations__text">
+            <span class="eyebrow">Cloud Integrations</span>
+            <h2 class="section__heading">
+              One control plane. <span class="text-italic">Many</span> clouds.
+            </h2>
+            <p class="section__description">
+              Stack8s Spine connects 15+ cloud and edge providers into a unified control plane. 
+              Deploy AI workloads where they make strategic, economic, and regulatory sense—without 
+              vendor lock-in or compromise.
+            </p>
+          </div>
+          
+          <!-- Cloud Provider Cards Carousel -->
+          <div class="providers-carousel">
+            <div class="providers-carousel__viewport">
+              <div class="providers-carousel__track" id="providers-track">
+                
+                <article class="provider-card">
+                  <div class="provider-card__header">
+                    <div class="provider-card__logo">AWS</div>
+                    <span class="provider-card__badge">Multi-Region</span>
+                  </div>
+                  <div class="provider-card__gpu">
+                    <span class="provider-card__label">GPUs</span>
+                    <span class="provider-card__value">A100, H100, V100, T4</span>
+                  </div>
+                  <div class="provider-card__availability">
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Availability</span>
+                      <span class="provider-card__value">Top Tier</span>
+                    </div>
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Regions</span>
+                      <span class="provider-card__value">30+</span>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="provider-card">
+                  <div class="provider-card__header">
+                    <div class="provider-card__logo">Azure</div>
+                    <span class="provider-card__badge">Enterprise Ready</span>
+                  </div>
+                  <div class="provider-card__gpu">
+                    <span class="provider-card__label">GPUs</span>
+                    <span class="provider-card__value">A100, V100, T4, M60</span>
+                  </div>
+                  <div class="provider-card__availability">
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Availability</span>
+                      <span class="provider-card__value">Top Tier</span>
+                    </div>
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Regions</span>
+                      <span class="provider-card__value">60+</span>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="provider-card">
+                  <div class="provider-card__header">
+                    <div class="provider-card__logo">GCP</div>
+                    <span class="provider-card__badge">AI Optimized</span>
+                  </div>
+                  <div class="provider-card__gpu">
+                    <span class="provider-card__label">GPUs</span>
+                    <span class="provider-card__value">A100, V100, T4, TPUs</span>
+                  </div>
+                  <div class="provider-card__availability">
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Availability</span>
+                      <span class="provider-card__value">Top Tier</span>
+                    </div>
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Regions</span>
+                      <span class="provider-card__value">35+</span>
+                    </div>
+                  </div>
+                </article>
+                
+                <article class="provider-card">
+                  <div class="provider-card__header">
+                    <div class="provider-card__logo">On-Prem</div>
+                    <span class="provider-card__badge">Full Control</span>
+                  </div>
+                  <div class="provider-card__gpu">
+                    <span class="provider-card__label">GPUs</span>
+                    <span class="provider-card__value">Any NVIDIA, AMD</span>
+                  </div>
+                  <div class="provider-card__availability">
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Deployment</span>
+                      <span class="provider-card__value">Your Infrastructure</span>
+                    </div>
+                    <div class="provider-card__metric">
+                      <span class="provider-card__label">Data Residency</span>
+                      <span class="provider-card__value">100%</span>
+                    </div>
+                  </div>
+                </article>
+                
+              </div>
+            </div>
+            
+            <div class="slider__controls">
+              <button class="slider__arrow slider__arrow--prev" aria-label="Previous provider">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="slider__dots" id="providers-dots"></div>
+              <button class="slider__arrow slider__arrow--next" aria-label="Next provider">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2.3: USP - Value Propositions -->
+    <section class="usp-section section-foreground" id="usp">
+      <div class="section__container">
+        <div class="usp-section__header">
+          <h2 class="section__heading section__heading--centered">
+            Build, deploy <span class="text-italic">and</span> operate.<br/>
+            You decide where <span class="text-italic">your</span> intelligence runs.
+          </h2>
+        </div>
+        
+        <div class="usp-cards">
+          <article class="usp-card">
+            <div class="usp-card__icon">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="16" y="16" width="32" height="32" rx="6" fill="rgba(255, 165, 0, 0.2)"/>
+                <path d="M24 24L32 32M32 24L24 32M40 32L32 40" stroke="rgba(255, 165, 0, 0.8)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="usp-card__title">End-to-endless capabilities</h3>
+            <p class="usp-card__description">
+              Train, fine-tune, and run inference at scale.
+            </p>
+          </article>
+          
+          <article class="usp-card">
+            <div class="usp-card__icon">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="22" r="10" fill="rgba(0, 255, 127, 0.2)"/>
+                <circle cx="32" cy="32" r="8" fill="rgba(0, 255, 127, 0.3)"/>
+                <circle cx="32" cy="42" r="6" fill="rgba(0, 255, 127, 0.4)"/>
+              </svg>
+            </div>
+            <h3 class="usp-card__title">Control by design</h3>
+            <p class="usp-card__description">
+              Fast deployment without compromising security.
+            </p>
+          </article>
+          
+          <article class="usp-card">
+            <div class="usp-card__icon">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="32" cy="26" rx="16" ry="10" fill="rgba(147, 51, 234, 0.2)"/>
+                <ellipse cx="32" cy="38" rx="12" ry="8" fill="rgba(147, 51, 234, 0.3)"/>
+              </svg>
+            </div>
+            <h3 class="usp-card__title">Flexible deployments</h3>
+            <p class="usp-card__description">
+              Public, private, or hybrid - your choice.
+            </p>
+          </article>
+          
+          <article class="usp-card">
+            <div class="usp-card__icon">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="14" fill="rgba(0, 191, 255, 0.2)"/>
+                <path d="M32 20V44M20 32H44" stroke="rgba(0, 191, 255, 0.8)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="usp-card__title">Expertise at your fingertips</h3>
+            <p class="usp-card__description">
+              Backed by decades of experience and support.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2.5: Interactive Benefits Map -->
+    <section class="benefits-map section-background" id="benefits">
+      <div class="section__container">
+        <div class="benefits-map__content">
+          
+          <!-- Left side - Text content that swaps per stage -->
+          <div class="benefits-map__text">
+            
+            <div class="benefits-text-content" data-stage="0" data-active="true">
+              <h2 class="benefits-map__title">
+                Provision <span class="text-italic">and</span> Add Compute
+              </h2>
+              <p class="benefits-map__subtitle">from any cloud to a k8s Cluster</p>
+              
+              <div class="benefits-map__section">
+                <h3 class="benefits-map__label">Benefits</h3>
+                <ul class="benefits-map__list">
+                  <li>Pool in Compute Seamlessly.</li>
+                  <li><strong>AWS</strong> in 🇺🇸</li>
+                  <li><strong>Vultr</strong> GPUs in 🇩🇪</li>
+                  <li><strong>Equinix</strong> LD4 in 🇬🇧</li>
+                  <li><strong>OpenStack</strong> on-prem 🖥️</li>
+                  <li>+ more</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="benefits-text-content" data-stage="1" data-active="false">
+              <h2 class="benefits-map__title">
+                <span class="text-italic">Save</span> 💰 vs. hyperscalers
+              </h2>
+              <p class="benefits-map__subtitle">on AI Workloads</p>
+              
+              <div class="benefits-map__section">
+                <h3 class="benefits-map__label">Benefits</h3>
+                <ul class="benefits-map__list">
+                  <li>Scale <strong>microservices</strong> securely 🔒 and privately 🛡️</li>
+                  <li>Across <strong>regions</strong> in cloud(s) 🗺️</li>
+                  <li>On Average Enterprise can <strong>save around 💸 600,000 pa</strong> on cloud bills 🎯</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="benefits-text-content" data-stage="2" data-active="false">
+              <h2 class="benefits-map__title">
+                Run <span class="text-italic">LLM model training</span> kits
+              </h2>
+              <p class="benefits-map__subtitle">vector databases and hyper parameter tuning with MLOps</p>
+              
+              <div class="benefits-map__section">
+                <h3 class="benefits-map__label">Component Marketplace</h3>
+                <p class="benefits-map__description">
+                  Whether you're building ML pipelines, deploying agents, or spinning up dev tools, 
+                  plug-and-play components make setup instant and scalable.
+                </p>
+                <div class="benefits-map__tools">
+                  <span class="tool-badge">Chroma</span>
+                  <span class="tool-badge">Kubeflow</span>
+                  <span class="tool-badge">mlflow</span>
+                  <span class="tool-badge">TensorFlow</span>
+                  <span class="tool-badge">Mistral AI</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Right side - Globe world map -->
+          <div class="benefits-map__visual">
+            <div class="world-map">
+              <img src="assets/globus.svg" alt="Global Infrastructure" class="world-map__globe" />
+              
+              <!-- Floating labels/nodes on globe -->
+              <div class="map-node" style="top: 15%; left: 20%;">
+                <span class="map-node__label">🌍 GPU</span>
+              </div>
+              <div class="map-node" style="top: 20%; left: 65%;">
+                <span class="map-node__label">GenAI</span>
+              </div>
+              <div class="map-node" style="top: 25%; right: 15%;">
+                <span class="map-node__label">aws Storage</span>
+              </div>
+              <div class="map-node" style="top: 48%; right: 12%;">
+                <span class="map-node__label">TPU</span>
+              </div>
+              <div class="map-node" style="top: 70%; left: 45%;">
+                <span class="map-node__label">LLMs</span>
+              </div>
+              <div class="map-node" style="top: 52%; left: 15%;">
+                <span class="map-node__label">OpenStack GPUs</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="slider__controls">
+          <button class="slider__arrow slider__arrow--prev" aria-label="Previous benefit">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="slider__dots" id="benefits-dots"></div>
+          <button class="slider__arrow slider__arrow--next" aria-label="Next benefit">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Platform Overview -->
+    <section class="platform-overview section-foreground" id="platform">
+      <div class="section__container">
+        <div class="platform-overview__header">
+          <span class="eyebrow">The Platform</span>
+          <h2 class="section__heading">
+            Cloud-native AI infrastructure, <span class="text-italic">built for</span> sovereignty
+          </h2>
+          <p class="section__description section__description--centered">
+            Enterprise-grade Kubernetes platform purpose-built for AI/ML workloads. 
+            Deploy anywhere, manage everywhere, scale infinitely—across public clouds, 
+            private infrastructure, and edge environments.
+          </p>
+        </div>
+        
+        <div class="feature-cards">
+          <article class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="8" width="12" height="12" rx="2" fill="currentColor" opacity="0.2"/>
+                <rect x="8" y="28" width="12" height="12" rx="2" fill="currentColor" opacity="0.4"/>
+                <rect x="28" y="8" width="12" height="12" rx="2" fill="currentColor" opacity="0.6"/>
+                <rect x="28" y="28" width="12" height="12" rx="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">AI Compute & Training</h3>
+            <p class="feature-card__description">
+              Access distributed GPU clusters across 15+ clouds. Train large language models 
+              and foundation models at scale with optimal cost and performance.
+            </p>
+            <a href="#" class="feature-card__link">Learn more →</a>
+          </article>
+          
+          <article class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2" fill="none"/>
+                <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                <path d="M24 8V16M24 32V40M8 24H16M32 24H40" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Inference Delivery</h3>
+            <p class="feature-card__description">
+              Deploy models globally with intelligent routing. Serve predictions with 
+              ultra-low latency from regions closest to your users.
+            </p>
+            <a href="#" class="feature-card__link">Learn more →</a>
+          </article>
+          
+          <article class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" y="12" width="24" height="24" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M20 20V28M24 16V28M28 22V28" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Private & Hybrid Cloud</h3>
+            <p class="feature-card__description">
+              Run sensitive workloads on-premises or in sovereign clouds. Seamlessly 
+              extend to public clouds when needed for burst capacity.
+            </p>
+            <a href="#" class="feature-card__link">Learn more →</a>
+          </article>
+          
+          <article class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 8L32 16L24 24L16 16L24 8Z" fill="currentColor" opacity="0.3"/>
+                <path d="M24 24L32 32L24 40L16 32L24 24Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Governance & Control</h3>
+            <p class="feature-card__description">
+              Granular RBAC, audit trails, and compliance frameworks. Meet regulatory 
+              requirements while maintaining operational velocity.
+            </p>
+            <a href="#" class="feature-card__link">Learn more →</a>
+          </article>
+          
+          <article class="feature-card">
+            <div class="feature-card__icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="24" r="4" fill="currentColor"/>
+                <circle cx="24" cy="12" r="4" fill="currentColor" opacity="0.6"/>
+                <circle cx="36" cy="24" r="4" fill="currentColor" opacity="0.8"/>
+                <circle cx="24" cy="36" r="4" fill="currentColor" opacity="0.4"/>
+                <path d="M12 24L24 12M24 12L36 24M36 24L24 36M24 36L12 24" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Edge & IoT AI</h3>
+            <p class="feature-card__description">
+              Distribute intelligence to the edge. Run inference at the device level 
+              with centralized model management and updates.
+            </p>
+            <a href="#" class="feature-card__link">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3.5: Full Stack Platform -->
+    <section class="full-stack-platform section-background" id="full-stack">
+      <div class="section__container">
+        <div class="full-stack-platform__header">
+          <h2 class="section__heading section__heading--centered">
+            Not Just Infra - Your <span class="text-italic">Entire</span> Stack, Unified
+          </h2>
+          <p class="full-stack-platform__tagline">
+            Your <strong>applications</strong> demand more than just AI Compute. They need <strong>databases</strong> 💾, 
+            <strong>analytics notebooks</strong> 📊, <strong>backend services</strong> ⚙️, <strong>API gateways</strong> 🔌, 
+            and <strong>frontend frameworks</strong> 🎨.
+          </p>
+          <p class="full-stack-platform__description">
+            Presenting you <strong>Stack8s - Cloud {Native} Platform</strong><br/>
+            A <strong>fully integrated</strong> platform built on <strong>Kubernetes</strong> best practices. 
+            We provide a <strong>modular, scalable, and secure environment</strong> where every component of your stack coexists seamlessly.
+            From <strong>data pipelines</strong> to <strong>user interfaces</strong>,
+          </p>
+          <p class="full-stack-platform__cta">
+            Experience the power of a <strong>unified platform</strong> that brings all your application needs under one roof.
+          </p>
+          <p class="full-stack-platform__footer">
+            Build smarter, deploy faster, and scale effortlessly with stack8s. 🚀
+          </p>
+        </div>
+        
+        <div class="component-logos-scroll">
+          <div class="component-logos">
+            <div class="component-logo">
+              <img src="assets/Redis.png" alt="Redis" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/Jupyter.png" alt="Jupyter" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/Tensorflow_logo.png" alt="TensorFlow" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/cassandra.png" alt="Cassandra" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/mlflow.png" alt="MLflow" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/kafka.png" alt="Kafka" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/kubeflow.png" alt="Kubeflow" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/ollama-p-500.png" alt="Ollama" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/deepseek.png" alt="DeepSeek" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/dify_logo_dark.png" alt="Dify" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/nextjs.png" alt="Next.js" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/Ceph_Logo_Stacked_RGB.png" alt="Ceph" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/elephant-p-500.png" alt="PostgreSQL" />
+            </div>
+            <!-- Duplicates for seamless loop -->
+            <div class="component-logo">
+              <img src="assets/Redis.png" alt="Redis" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/Jupyter.png" alt="Jupyter" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/Tensorflow_logo.png" alt="TensorFlow" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/cassandra.png" alt="Cassandra" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/mlflow.png" alt="MLflow" />
+            </div>
+            <div class="component-logo">
+              <img src="assets/kafka.png" alt="Kafka" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Use Cases Carousel -->
+    <section class="use-cases section-background" id="solutions">
+      <div class="section__container">
+        <div class="use-cases__header">
+          <h2 class="section__heading section__heading--centered">
+            Builders ship <span class="text-italic">faster</span> with Stack8s.
+          </h2>
+          <p class="section__description section__description--centered">
+            From AI startups to global enterprises, Stack8s accelerates deployment 
+            and reduces infrastructure complexity.
+          </p>
+        </div>
+        
+        <div class="carousel">
+          <div class="carousel__viewport">
+            <div class="carousel__track" id="use-cases-track">
+              
+              <article class="carousel__card" data-active="true">
+                <span class="carousel__card-tag">AI Labs & Research</span>
+                <h3 class="carousel__card-title">Build and train foundation models at scale</h3>
+                <p class="carousel__card-description">
+                  Access distributed GPU infrastructure across multiple providers. 
+                  Train LLMs and multimodal models with optimal resource allocation 
+                  and cost efficiency.
+                </p>
+                <a href="#" class="carousel__card-link">Explore use case →</a>
+              </article>
+              
+              <article class="carousel__card" data-active="false">
+                <span class="carousel__card-tag">Enterprise AI</span>
+                <h3 class="carousel__card-title">Deploy production AI with confidence</h3>
+                <p class="carousel__card-description">
+                  Enterprise-grade security, compliance, and governance. Run AI workloads 
+                  in regulated industries with full audit trails and data sovereignty.
+                </p>
+                <a href="#" class="carousel__card-link">Explore use case →</a>
+              </article>
+              
+              <article class="carousel__card" data-active="false">
+                <span class="carousel__card-tag">Cloud Providers</span>
+                <h3 class="carousel__card-title">Power sovereign AI clouds</h3>
+                <p class="carousel__card-description">
+                  White-label Stack8s to offer AI infrastructure as a service. Enable 
+                  your customers to deploy and manage AI with sovereignty and control.
+                </p>
+                <a href="#" class="carousel__card-link">Explore use case →</a>
+              </article>
+              
+              <article class="carousel__card" data-active="false">
+                <span class="carousel__card-tag">Startups</span>
+                <h3 class="carousel__card-title">Launch AI products without infrastructure overhead</h3>
+                <p class="carousel__card-description">
+                  Focus on your product, not infrastructure. Stack8s handles deployment, 
+                  scaling, and operations so you can iterate faster and reach market sooner.
+                </p>
+                <a href="#" class="carousel__card-link">Explore use case →</a>
+              </article>
+              
+            </div>
+          </div>
+          
+          <div class="slider__controls">
+            <button class="slider__arrow slider__arrow--prev" aria-label="Previous use case">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="slider__dots" id="use-cases-dots"></div>
+            <button class="slider__arrow slider__arrow--next" aria-label="Next use case">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Pricing/Cost Showcase -->
+    <section class="pricing section-foreground" id="pricing">
+      <div class="section__container">
+        <div class="pricing__header">
+          <h2 class="section__heading section__heading--centered">
+            Flexible infrastructure. <span class="text-italic">Predictable</span> costs.
+          </h2>
+          <p class="section__description section__description--centered">
+            Deploy AI workloads where they deliver the most value—strategically, economically, and compliantly. 
+            Optimize costs across clouds without sacrificing performance or sovereignty.
+          </p>
+        </div>
+        
+        <div class="pricing-slider">
+          <div class="pricing-slider__viewport">
+            <div class="pricing-slider__track" id="pricing-track">
+            
+              <article class="pricing-card">
+              <span class="pricing-card__tag">Best for AI Labs</span>
+              <h3 class="pricing-card__title">Sovereign Private Cloud</h3>
+              <p class="pricing-card__description">
+                Full-stack AI infrastructure hosted in your choice of sovereign regions. 
+                Complete data residency and regulatory compliance with enterprise SLAs.
+              </p>
+              <ul class="pricing-card__features">
+                <li>Dedicated GPU clusters</li>
+                <li>On-prem or sovereign cloud hosting</li>
+                <li>Zero data transfer to hyperscalers</li>
+              </ul>
+            </article>
+            
+            <article class="pricing-card">
+              <span class="pricing-card__tag">Most Flexible</span>
+              <h3 class="pricing-card__title">Hybrid Multi-Cloud</h3>
+              <p class="pricing-card__description">
+                Intelligently distribute workloads across public clouds, private infrastructure, 
+                and edge. Optimize for cost, latency, and compliance simultaneously.
+              </p>
+              <ul class="pricing-card__features">
+                <li>15+ cloud integrations</li>
+                <li>Automated workload placement</li>
+                <li>Cost optimization engine</li>
+              </ul>
+            </article>
+            
+            <article class="pricing-card">
+              <span class="pricing-card__tag">Great for Startups</span>
+              <h3 class="pricing-card__title">Managed AI Platform</h3>
+              <p class="pricing-card__description">
+                Fully managed Kubernetes platform for AI/ML workloads. Deploy models, 
+                manage jobs, and scale inference—all through a single control plane.
+              </p>
+              <ul class="pricing-card__features">
+                <li>Managed control plane</li>
+                <li>Built-in MLOps tooling</li>
+                <li>Pay-as-you-go pricing</li>
+              </ul>
+            </article>
+            
+            <article class="pricing-card">
+              <span class="pricing-card__tag">Maximum Control</span>
+              <h3 class="pricing-card__title">On-Prem & Edge AI</h3>
+              <p class="pricing-card__description">
+                Run AI at the edge or in your own data centers. Centralized management 
+                with distributed execution for ultra-low latency and data sovereignty.
+              </p>
+              <ul class="pricing-card__features">
+                <li>Air-gapped deployment option</li>
+                <li>Edge device management</li>
+                <li>Local inference, global orchestration</li>
+              </ul>
+            </article>
+            
+            </div>
+          </div>
+          
+          <div class="slider__controls">
+            <button class="slider__arrow slider__arrow--prev" aria-label="Previous pricing option">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="slider__dots" id="pricing-dots"></div>
+            <button class="slider__arrow slider__arrow--next" aria-label="Next pricing option">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Platform Diagram -->
+    <section class="platform-diagram section-background" id="architecture">
+      <div class="section__container">
+        <div class="platform-diagram__header">
+          <h2 class="section__heading section__heading--centered">
+            One platform. Complete AI infrastructure.
+          </h2>
+        </div>
+        
+        <div class="platform-diagram__tabs">
+          <button class="platform-diagram__tab platform-diagram__tab--active" data-tab="complete">
+            Complete Platform
+          </button>
+          <button class="platform-diagram__tab" data-tab="control-plane">
+            Control Plane
+          </button>
+          <button class="platform-diagram__tab" data-tab="ai-stack">
+            AI/ML Stack
+          </button>
+          <button class="platform-diagram__tab" data-tab="governance">
+            Governance
+          </button>
+        </div>
+        
+        <div class="platform-diagram__content">
+          <div class="diagram-view diagram-view--active" data-view="complete">
+            <div class="diagram">
+              <div class="diagram__layer">
+                <div class="diagram__label">Applications & Services</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Portal</div>
+                  <div class="diagram__box">Marketplace</div>
+                  <div class="diagram__box">APIs</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">AI/ML Tooling</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">MLOps</div>
+                  <div class="diagram__box">Model Registry</div>
+                  <div class="diagram__box">Experiment Tracking</div>
+                  <div class="diagram__box">Inference Server</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Orchestration & Control</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box diagram__box--highlight">Spine Fabric</div>
+                  <div class="diagram__box">Cluster Manager</div>
+                  <div class="diagram__box">Scheduler</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Infrastructure</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Multi-Cloud</div>
+                  <div class="diagram__box">On-Prem</div>
+                  <div class="diagram__box">Edge</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="diagram-view" data-view="control-plane">
+            <div class="diagram">
+              <div class="diagram__layer">
+                <div class="diagram__label">Control Plane Components</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box diagram__box--highlight">Spine API</div>
+                  <div class="diagram__box">Identity & Auth</div>
+                  <div class="diagram__box">RBAC Engine</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Multi-Tenant Management</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Core Zones</div>
+                  <div class="diagram__box">Projects</div>
+                  <div class="diagram__box">Stacks</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Cluster Orchestration</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">K8s Control Plane</div>
+                  <div class="diagram__box">GitOps Sync</div>
+                  <div class="diagram__box">Policy Engine</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="diagram-view" data-view="ai-stack">
+            <div class="diagram">
+              <div class="diagram__layer">
+                <div class="diagram__label">Training & Experimentation</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Distributed Training</div>
+                  <div class="diagram__box">Hyperparameter Tuning</div>
+                  <div class="diagram__box">Experiment Tracking</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Model Management</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Model Registry</div>
+                  <div class="diagram__box">Version Control</div>
+                  <div class="diagram__box">A/B Testing</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Inference & Serving</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Real-time Inference</div>
+                  <div class="diagram__box">Batch Prediction</div>
+                  <div class="diagram__box">Auto-scaling</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="diagram-view" data-view="governance">
+            <div class="diagram">
+              <div class="diagram__layer">
+                <div class="diagram__label">Security & Compliance</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Zero Trust Network</div>
+                  <div class="diagram__box">Encryption at Rest/Transit</div>
+                  <div class="diagram__box">Audit Logging</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Observability</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Metrics</div>
+                  <div class="diagram__box">Logs</div>
+                  <div class="diagram__box">Distributed Tracing</div>
+                </div>
+              </div>
+              
+              <div class="diagram__layer">
+                <div class="diagram__label">Cost Management</div>
+                <div class="diagram__boxes">
+                  <div class="diagram__box">Resource Tracking</div>
+                  <div class="diagram__box">Budget Alerts</div>
+                  <div class="diagram__box">Cost Optimization</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: How Stack8s Works -->
+    <section class="how-it-works section-foreground" id="how-it-works">
+      <div class="section__container">
+        <div class="how-it-works__header">
+          <span class="eyebrow">How It Works</span>
+          <h2 class="section__heading section__heading--centered">
+            From idea to production<br>in five steps
+          </h2>
+        </div>
+        
+        <div class="steps-carousel">
+          <!-- Left side - Static text content -->
+          <div class="steps-carousel__text">
+            <div class="steps-carousel__text-content" data-step="0" data-active="true">
+              <h3 class="step-slide__title">Step 1 - Core Zone</h3>
+              <p class="step-slide__description">
+                Set up your <strong>environment</strong> (cluster) and select your <strong>Core Zone</strong> – 
+                the foundational location where your <strong>control plane</strong> (master nodes) will reside.
+              </p>
+              <p class="step-slide__description">
+                This is the <strong>brain</strong> of your compute cluster, responsible for managing 
+                <strong>workloads, networking, and orchestration</strong>.
+              </p>
+              <p class="step-slide__tip">💡 Tip: You can add more zones and nodes later</p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="1" data-active="false">
+              <h3 class="step-slide__title">Step 2 - Projects</h3>
+              <p class="step-slide__description">
+                Projects are your first layer of multi-tenancy, designed to keep environments clean, 
+                secure, and organized. Each project is <strong>network-isolated</strong> from the others 
+                and acts as a container for related <strong>Stacks</strong>.
+              </p>
+              <p class="step-slide__tip">
+                📦 Use projects to separate teams, clients, or environments while maintaining full isolation and control.
+              </p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="2" data-active="false">
+              <h3 class="step-slide__title">Step 3 - Stacks</h3>
+              <p class="step-slide__description">
+                <strong>Stacks</strong> (mapped to Kubernetes namespaces) are your second layer of 
+                multi-tenancy. They act as <strong>virtual clusters</strong> within your project, used to 
+                organize and isolate compute resources, workloads, and configurations.
+              </p>
+              <p class="step-slide__tip">
+                🧩 Each Stack gives you fine-grained control over deployments—ideal for separating teams, 
+                applications, or environments within the same project.
+              </p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="3" data-active="false">
+              <h3 class="step-slide__title">Step 4 - Add Components</h3>
+              <p class="step-slide__description">
+                Explore the <strong>Component Marketplace</strong> to supercharge your stack. 
+                Choose from <strong>100+ pre-packaged components</strong>—including Ollama, ChromaDB, Kafka, 
+                TensorFlow, and RStudio—or bring your own <strong>custom container</strong>.
+              </p>
+              <p class="step-slide__tip">
+                🔧 Whether you're building ML pipelines, deploying agents, or spinning up dev tools, 
+                plug-and-play components make setup instant and scalable.
+              </p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="4" data-active="false">
+              <h3 class="step-slide__title">Step 5 - Scale Instantly</h3>
+              <p class="step-slide__description">
+                Horizontal scaling with GPUs, CPUs, and storage has never been simpler. 
+                Stack8s auto-scales your infrastructure based on demand, ensuring optimal 
+                performance and cost efficiency.
+              </p>
+              <p class="step-slide__tip">
+                📈 Scale up for training workloads, scale down during idle times—Stack8s handles it automatically.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Right side - Sliding visual cards -->
+          <div class="steps-carousel__visuals">
+            <div class="steps-carousel__track" id="steps-track">
+              
+              <article class="step-slide" data-active="true">
+                <div class="step-visual-card step-visual-card--1">
+                  <span class="step-visual-card__number">01</span>
+                  <span class="step-visual-card__label">Core Zone Selection</span>
+                  <p class="step-visual-card__text">
+                    This zone will host your <strong>control plane</strong> and a few <strong>worker nodes</strong> to get you started
+                  </p>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--2">
+                  <span class="step-visual-card__number">02</span>
+                  <span class="step-visual-card__label">Projects</span>
+                  <p class="step-visual-card__text">
+                    These are <strong>network isolated</strong> from each other and can have <strong>resource quotas</strong> for billing
+                  </p>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--3">
+                  <span class="step-visual-card__number">03</span>
+                  <span class="step-visual-card__label">Stack</span>
+                  <p class="step-visual-card__text">
+                    Create a Stack inside your Project
+                  </p>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--4">
+                  <span class="step-visual-card__number">04</span>
+                  <span class="step-visual-card__label">Add Components</span>
+                  <ul class="step-visual-card__list">
+                    <li>• ollama</li>
+                    <li>• Chroma DB</li>
+                    <li>• Kafka</li>
+                    <li>• tensorflow</li>
+                    <li>• RStudio</li>
+                  </ul>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--5">
+                  <span class="step-visual-card__number">05</span>
+                  <span class="step-visual-card__label">Scale Up Instantly</span>
+                  <p class="step-visual-card__text">
+                    Horizontal scaling with GPUs, CPUs, and storage has never been simpler
+                  </p>
+                </div>
+              </article>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="slider__controls">
+          <button class="slider__arrow slider__arrow--prev" aria-label="Previous step">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="slider__dots" id="steps-dots"></div>
+          <button class="slider__arrow slider__arrow--next" aria-label="Next step">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Resources & Community -->
+    <section class="resources section-background" id="resources">
+      <div class="section__container">
+        <div class="resources__header">
+          <span class="eyebrow">Resources</span>
+          <h2 class="section__heading section__heading--centered">
+            Everything you need<br>to succeed with Stack8s
+          </h2>
+        </div>
+        
+        <div class="resource-cards">
+          <article class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="12" stroke="currentColor" stroke-width="2"/>
+                <circle cx="20" cy="20" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="resource-card__title">Community</h3>
+            <p class="resource-card__description">
+              Join thousands of developers building sovereign AI infrastructure.
+            </p>
+            <a href="#" class="resource-card__link">
+              Join Community
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </article>
+          
+          <article class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="8" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 16H24M16 20H24M16 24H20" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="resource-card__title">Documentation</h3>
+            <p class="resource-card__description">
+              Comprehensive guides, API references, and tutorials.
+            </p>
+            <a href="#" class="resource-card__link">
+              Read Docs
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </article>
+          
+          <article class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16L20 12L28 16L20 20L12 16Z" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.2"/>
+                <path d="M12 24L20 20L28 24L20 28L12 24Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="resource-card__title">Articles & News</h3>
+            <p class="resource-card__description">
+              Latest updates, technical deep-dives, and customer stories.
+            </p>
+            <a href="#" class="resource-card__link">
+              View Articles
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </article>
+          
+          <article class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="20" height="20" rx="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="16" cy="16" r="2" fill="currentColor"/>
+                <circle cx="24" cy="24" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="resource-card__title">Case Studies</h3>
+            <p class="resource-card__description">
+              See how leading companies are deploying sovereign AI.
+            </p>
+            <a href="#" class="resource-card__link">
+              Explore Stories
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Final CTA -->
+    <section class="final-cta section-background">
+      <div class="section__container">
+        <div class="final-cta__content">
+          <h2 class="final-cta__title">
+            Ready to run AI <span class="text-italic">on your terms</span>?
+          </h2>
+          <p class="final-cta__description">
+            Join leading organizations deploying sovereign AI infrastructure. Get complete control 
+            over your AI workloads, data residency, and cloud strategy—without vendor lock-in.
+          </p>
+          <div class="final-cta__buttons">
+            <button class="btn btn-primary btn-large">Book a Demo</button>
+            <a href="#platform" class="btn btn-secondary btn-large">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/stack8s-logo.svg" alt="Stack8s" width="32" height="40" />
+            <span class="footer__logo-text">stack8s</span>
+          </div>
+          <p class="footer__tagline">
+            Building the foundation for sovereign AI. Empowering organizations to deploy and manage 
+            AI workloads with complete autonomy across any cloud infrastructure.
+          </p>
+        </div>
+        
+        <div class="footer__links">
+          <div class="footer__column">
+            <h4 class="footer__column-title">Platform</h4>
+            <ul class="footer__list">
+              <li><a href="#platform">Overview</a></li>
+              <li><a href="#architecture">Architecture</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#">Integrations</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__column">
+            <h4 class="footer__column-title">Solutions</h4>
+            <ul class="footer__list">
+              <li><a href="#">AI Labs</a></li>
+              <li><a href="#">Enterprise</a></li>
+              <li><a href="#">Cloud Providers</a></li>
+              <li><a href="#">Startups</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__column">
+            <h4 class="footer__column-title">Resources</h4>
+            <ul class="footer__list">
+              <li><a href="#resources">Documentation</a></li>
+              <li><a href="#">Community</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer__column">
+            <h4 class="footer__column-title">Company</h4>
+            <ul class="footer__list">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Partners</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          <p>&copy; 2025 Stack8s. All rights reserved.</p>
+          <div class="footer__legal-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Security</a>
+          </div>
+        </div>
+        
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H16C17.1 18 18 17.1 18 16V4C18 2.9 17.1 2 16 2ZM7 15H5V8H7V15ZM6 7C5.4 7 5 6.6 5 6C5 5.4 5.4 5 6 5C6.6 5 7 5.4 7 6C7 6.6 6.6 7 6 7ZM15 15H13V11.5C13 10.7 12.3 10 11.5 10C10.7 10 10 10.7 10 11.5V15H8V8H10V9C10.5 8.4 11.2 8 12 8C13.7 8 15 9.3 15 11V15Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C5.58 2 2 5.58 2 10C2 13.54 4.29 16.53 7.47 17.59C7.87 17.66 8.02 17.42 8.02 17.21C8.02 17.02 8.01 16.39 8.01 15.72C6 16.09 5.48 15.21 5.32 14.76C5.23 14.53 4.84 13.8 4.5 13.61C4.22 13.46 3.82 13.09 4.49 13.08C5.12 13.07 5.57 13.66 5.72 13.9C6.44 15.15 7.59 14.81 8.05 14.6C8.12 14.08 8.33 13.73 8.56 13.53C6.84 13.33 5.04 12.65 5.04 9.53C5.04 8.64 5.23 7.91 5.74 7.34C5.66 7.14 5.38 6.33 5.82 5.22C5.82 5.22 6.49 5.01 8.02 6.04C8.66 5.86 9.34 5.77 10.02 5.77C10.7 5.77 11.38 5.86 12.02 6.04C13.55 5 14.22 5.22 14.22 5.22C14.66 6.33 14.38 7.14 14.3 7.34C14.81 7.91 15 8.63 15 9.53C15 12.66 13.19 13.33 11.47 13.53C11.76 13.78 12.01 14.27 12.01 15.04C12.01 16.14 12 17.03 12 17.21C12 17.42 12.15 17.67 12.55 17.59C15.71 16.53 18 13.53 18 10C18 5.58 14.42 2 10 2Z" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 4.5C16.4 4.8 15.8 5 15.1 5.1C15.8 4.7 16.3 4.1 16.5 3.3C15.9 3.7 15.2 4 14.4 4.1C13.8 3.5 13 3.1 12 3.1C10.3 3.1 8.8 4.6 8.8 6.5C8.8 6.8 8.8 7 8.9 7.2C6.2 7.1 3.8 5.8 2.3 3.8C2 4.3 1.8 4.9 1.8 5.6C1.8 6.8 2.4 7.9 3.3 8.5C2.8 8.5 2.3 8.3 1.8 8.1V8.1C1.8 9.7 3 11 4.5 11.3C4.2 11.4 3.9 11.4 3.6 11.4C3.4 11.4 3.2 11.4 3 11.3C3.4 12.6 4.7 13.6 6.2 13.6C5 14.5 3.5 15 1.9 15C1.6 15 1.3 15 1 15C2.5 15.9 4.2 16.5 6.1 16.5C12 16.5 15.2 11.5 15.2 7C15.2 6.8 15.2 6.7 15.2 6.5C15.9 6 16.5 5.3 17 4.5Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/dot-background.js"></script>
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
