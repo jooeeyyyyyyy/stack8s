@@ -291,11 +291,10 @@ function initButtons() {
     if (button.textContent.includes('Book') || button.textContent.includes('Demo')) {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        // In production, this would open a booking modal or redirect to booking page
         console.log('📅 Book a Demo clicked');
         
-        // Placeholder: Show alert for now
-        alert('📅 Book a Demo\n\nThis would open your booking system (e.g., Calendly, HubSpot, custom form).\n\nReplace this with your actual booking flow.');
+        // Opens typeform :D
+        alert('Opens typeform :D');
       });
     }
   });
