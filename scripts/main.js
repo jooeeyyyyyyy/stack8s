@@ -392,34 +392,119 @@ function initAnimatedNavbar() {
   
   if (!navbar || !navbarWrapper) return;
   
-  // Use CSS :hover for dropdown visibility - it handles the bridge automatically
+  // Function to calculate and update navbar height
+  function updateNavbarHeight() {
+    let maxDropdownHeight = 0;
+    let hasActiveDropdown = false;
+    
+    // Find all dropdowns that are direct children of navbar
+    const dropdowns = navbar.querySelectorAll('.navbar__dropdown');
+    
+    dropdowns.forEach(dropdown => {
+      if (dropdown.classList.contains('is-active')) {
+        hasActiveDropdown = true;
+        // Temporarily show dropdown to measure its actual height
+        const originalMaxHeight = dropdown.style.maxHeight;
+        const originalVisibility = dropdown.style.visibility;
+        const originalOpacity = dropdown.style.opacity;
+        const originalOverflow = dropdown.style.overflow;
+        
+        dropdown.style.maxHeight = 'none';
+        dropdown.style.visibility = 'visible';
+        dropdown.style.opacity = '1';
+        dropdown.style.overflow = 'visible';
+        
+        // Measure the actual content height
+        const dropdownContent = dropdown.querySelector('.navbar__dropdown-content');
+        if (dropdownContent) {
+          const contentHeight = dropdownContent.offsetHeight;
+          // Add padding-top (1rem = 16px) and margin-top (0.5rem = 8px) = 24px total
+          const totalHeight = contentHeight + 24;
+          maxDropdownHeight = Math.max(maxDropdownHeight, totalHeight);
+        }
+        
+        // Restore original styles
+        dropdown.style.maxHeight = originalMaxHeight;
+        dropdown.style.visibility = originalVisibility;
+        dropdown.style.opacity = originalOpacity;
+        dropdown.style.overflow = originalOverflow;
+      }
+    });
+    
+    // Update navbar height - let dropdown extend naturally without extra padding
+    // The dropdown will extend the navbar naturally through its own height
+    // No need to add padding-bottom when dropdown is active
+  }
+  
+  // Handle dropdown hover states with sequenced animations
+  let activeDropdown = null;
+  let hoverTimeout = null;
+  
   navItems.forEach(item => {
-    const dropdown = item.querySelector('.navbar__dropdown');
+    const dropdownId = item.getAttribute('data-dropdown');
+    if (!dropdownId) return;
+    
+    const dropdown = navbar.querySelector(`.navbar__dropdown[data-dropdown-target="${dropdownId}"]`);
     if (!dropdown) return;
     
-    // Just add the is-active class for any additional JS-based styling
-    // CSS :hover will handle the actual show/hide
+    // Opening: hover item -> extend navbar
     item.addEventListener('mouseenter', () => {
+      // Clear any pending close timeout
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        hoverTimeout = null;
+      }
+      
+      // Close previously active dropdown if switching between items
+      if (activeDropdown && activeDropdown !== dropdown) {
+        activeDropdown.classList.remove('is-active');
+        navbar.classList.remove('has-dropdown-item-hover');
+      }
+      
+      // Open new dropdown smoothly
+      navbar.classList.add('has-dropdown-item-hover');
       dropdown.classList.add('is-active');
+      activeDropdown = dropdown;
     });
     
     item.addEventListener('mouseleave', () => {
-      // Small delay before removing active class
-      setTimeout(() => {
-        // Check if mouse is still over dropdown
-        if (!dropdown.matches(':hover')) {
+      // Small delay to allow moving to dropdown
+      hoverTimeout = setTimeout(() => {
+        // Check if mouse is still over dropdown or item
+        if (!dropdown.matches(':hover') && !item.matches(':hover')) {
           dropdown.classList.remove('is-active');
+          navbar.classList.remove('has-dropdown-item-hover');
+          if (activeDropdown === dropdown) {
+            activeDropdown = null;
+          }
         }
-      }, 150);
+      }, 100);
     });
     
     // Also handle dropdown direct hover
+    dropdown.addEventListener('mouseenter', () => {
+      // Clear any pending close timeout
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        hoverTimeout = null;
+      }
+      
+      // Keep dropdown open when hovering it
+      navbar.classList.add('has-dropdown-item-hover');
+      dropdown.classList.add('is-active');
+      activeDropdown = dropdown;
+    });
+    
     dropdown.addEventListener('mouseleave', () => {
-      setTimeout(() => {
+      hoverTimeout = setTimeout(() => {
         if (!item.matches(':hover')) {
           dropdown.classList.remove('is-active');
+          navbar.classList.remove('has-dropdown-item-hover');
+          if (activeDropdown === dropdown) {
+            activeDropdown = null;
+          }
         }
-      }, 150);
+      }, 100);
     });
   });
   
@@ -433,9 +518,12 @@ function initAnimatedNavbar() {
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       navbarWrapper.classList.add('navbar-hidden');
       // Close all dropdowns when hiding
-      document.querySelectorAll('.navbar__dropdown').forEach(dropdown => {
+      navbar.querySelectorAll('.navbar__dropdown').forEach(dropdown => {
         dropdown.classList.remove('is-active');
       });
+      // Remove corner radius class
+      navbar.classList.remove('has-dropdown-item-hover');
+      updateNavbarHeight();
     } else {
       navbarWrapper.classList.remove('navbar-hidden');
     }
@@ -453,7 +541,16 @@ function initAnimatedNavbar() {
   
   window.addEventListener('scroll', onScroll, { passive: true });
   
-  console.log('✓ Animated Navbar initialized');
+  // Recalculate on resize
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      updateNavbarHeight();
+    }, 100);
+  });
+  
+  console.log('✓ Animated Navbar initialized with dynamic height extension');
 }
 
 // =====================================================

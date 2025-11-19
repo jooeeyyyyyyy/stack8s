@@ -24,47 +24,173 @@
   <!-- Animated Navbar (Desktop Only) -->
   <div class="navbar-wrapper">
     <nav class="navbar">
-      <a href="index.html" class="navbar__logo">
-        <img src="assets/stack8s-logo.svg" alt="Stack8s" class="navbar__logo-img" width="28" height="35" />
-        <span class="navbar__logo-text">stack8s</span>
-      </a>
+      <div class="navbar__top-row">
+        <a href="index.html" class="navbar__logo">
+          <img src="assets/stack8s-logo.svg" alt="Stack8s" class="navbar__logo-img" width="28" height="35" />
+          <span class="navbar__logo-text">stack8s</span>
+        </a>
+        
+        <ul class="navbar__menu">
+          <li class="navbar__item" data-dropdown="platform">
+            <span class="navbar__link">Platform</span>
+          </li>
+          
+          <li class="navbar__item" data-dropdown="solutions">
+            <span class="navbar__link">Solutions</span>
+          </li>
+          
+          <li class="navbar__item">
+            <a href="pricing.html" class="navbar__link">Pricing</a>
+          </li>
+          
+          <li class="navbar__item" data-dropdown="about">
+            <span class="navbar__link">About</span>
+          </li>
+        </ul>
+        
+        <div class="navbar__cta">
+          <button class="btn btn-primary">Book a Demo</button>
+        </div>
+      </div>
       
-      <ul class="navbar__menu">
-        <li class="navbar__item">
-          <span class="navbar__link">Platform</span>
-          <div class="navbar__dropdown">
-            <div class="navbar__dropdown-inner">
-              <div class="navbar__dropdown-content">
-                <a href="platform.html" class="navbar__dropdown-link">Overview</a>
-                <a href="platform-components.html" class="navbar__dropdown-link">Components</a>
+      <!-- Dropdowns appear directly in navbar flow -->
+      <div class="navbar__dropdown" data-dropdown-target="platform">
+        <div class="navbar__dropdown-inner">
+          <div class="navbar__dropdown-content navbar__dropdown-content--platform">
+            <div class="navbar__platform-grid">
+              <!-- Left Column: Navigation -->
+              <div class="navbar__platform-nav">
+                <a href="platform.html" class="navbar__platform-nav-item">
+                  <div class="navbar__platform-nav-icon">⚡</div>
+                  <span class="navbar__platform-nav-text">Overview</span>
+                </a>
+                <a href="platform-components.html" class="navbar__platform-nav-item">
+                  <div class="navbar__platform-nav-icon">⚡</div>
+                  <span class="navbar__platform-nav-text">Components</span>
+                </a>
+              </div>
+              
+              <!-- Right Column: Content -->
+              <div class="navbar__platform-content">
+                <div class="navbar__platform-content-header">
+                  <h3 class="navbar__platform-content-title">A Platform built on Kubernetes</h3>
+                  <p class="navbar__platform-content-subtitle">Manage Infrastructure + AI Applications at Scale</p>
+                </div>
+                
+                <div class="navbar__platform-features">
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">Stack8s Spine</div>
+                    <div class="navbar__platform-feature-description">Network Fabric Mesh that weaves 15+ Cloud Providers all on a single k8s control plane.</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">Stack8s Portal - Private Cloud Platform</div>
+                    <div class="navbar__platform-feature-description">Platform to manage compute and workloads—no YAML gymnastics or multi-cloud headaches.</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">Clusters Management</div>
+                    <div class="navbar__platform-feature-description">Provision and manage your environments with full multi-tenancy.</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">App Marketplace</div>
+                    <div class="navbar__platform-feature-description">One-click install your favourite pre-configured tools, fully LLM models, Vector DBs, IoT Stack and more.</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">Integrations</div>
+                    <div class="navbar__platform-feature-description">Built-in GitOps and MLOps pipelines make code-to-deploy seamless across environments.</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">Private Git + Container Registry</div>
+                    <div class="navbar__platform-feature-description">Run your own Git and Container registry with zero external dependencies, all privately managed in your kube.</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">IoT Stack</div>
+                    <div class="navbar__platform-feature-description">Connect, manage, and scale edge devices natively across the stack8s network, includes LoRaWAN support too!</div>
+                  </div>
+                  
+                  <div class="navbar__platform-feature">
+                    <div class="navbar__platform-feature-title">Storage</div>
+                    <div class="navbar__platform-feature-description">Keep data close to compute and compliant with regional needs, across any cloud or on-prem setup.</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </li>
-        
-        <li class="navbar__item">
-          <a href="solutions.html" class="navbar__link">Solutions</a>
-        </li>
-        
-        <li class="navbar__item">
-          <a href="pricing.html" class="navbar__link">Pricing</a>
-        </li>
-        
-        <li class="navbar__item">
-          <span class="navbar__link">About</span>
-          <div class="navbar__dropdown">
-            <div class="navbar__dropdown-inner">
-              <div class="navbar__dropdown-content">
-                <a href="resources.html" class="navbar__dropdown-link">Resources</a>
-                <a href="company.html" class="navbar__dropdown-link">Company</a>
+        </div>
+      </div>
+      
+      <div class="navbar__dropdown" data-dropdown-target="solutions">
+        <div class="navbar__dropdown-inner">
+          <div class="navbar__dropdown-content navbar__dropdown-content--solutions">
+            <div class="navbar__solutions-grid">
+              <div class="navbar__solutions-column">
+                <a href="solutions.html" class="navbar__solution-item">
+                  <div class="navbar__solution-icon">✓</div>
+                  <div class="navbar__solution-content">
+                    <div class="navbar__solution-title">Private and Secure</div>
+                    <div class="navbar__solution-description">Run your apps on a fully isolated, zero-trust cloud that's yours—private, encrypted, and always under your control.</div>
+                  </div>
+                </a>
+                
+                <a href="solutions.html" class="navbar__solution-item">
+                  <div class="navbar__solution-icon">✓</div>
+                  <div class="navbar__solution-content">
+                    <div class="navbar__solution-title">Regional Scalability</div>
+                    <div class="navbar__solution-description">Deploy instantly across regions with built-in failover, ultra-low latency, and global HA baked in.</div>
+                  </div>
+                </a>
+                
+                <a href="solutions.html" class="navbar__solution-item">
+                  <div class="navbar__solution-icon">✓</div>
+                  <div class="navbar__solution-content">
+                    <div class="navbar__solution-title">Infrastructure Free!</div>
+                    <div class="navbar__solution-description">No VPCs, load balancers, or Terraform scripts—just pure compute, ready to go.</div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="navbar__solutions-column">
+                <a href="solutions.html" class="navbar__solution-item">
+                  <div class="navbar__solution-icon">✓</div>
+                  <div class="navbar__solution-content">
+                    <div class="navbar__solution-title">Vendor Lock-in</div>
+                    <div class="navbar__solution-description">Zero lock-in, zero hassle—migrate across clouds or bring your own infra with total freedom.</div>
+                  </div>
+                </a>
+                
+                <a href="solutions.html" class="navbar__solution-item">
+                  <div class="navbar__solution-icon">✓</div>
+                  <div class="navbar__solution-content">
+                    <div class="navbar__solution-title">Cost Savings up to 90%</div>
+                    <div class="navbar__solution-description">Cut cloud bills by using the best-fit compute—spot, bare metal, or idle VMs—on-demand and globally optimized.</div>
+                  </div>
+                </a>
+                
+                <a href="solutions.html" class="navbar__solution-item">
+                  <div class="navbar__solution-icon">✓</div>
+                  <div class="navbar__solution-content">
+                    <div class="navbar__solution-title">True Hybrid Clustering</div>
+                    <div class="navbar__solution-description">Plug your existing hardware into the stack8s fabric and scale like the cloud—without leaving the data center.</div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
       
-      <div class="navbar__cta">
-        <button class="btn btn-primary">Book a Demo</button>
+      <div class="navbar__dropdown" data-dropdown-target="about">
+        <div class="navbar__dropdown-inner">
+          <div class="navbar__dropdown-content">
+            <a href="resources.html" class="navbar__dropdown-link">Resources</a>
+            <a href="company.html" class="navbar__dropdown-link">Company</a>
+          </div>
+        </div>
       </div>
     </nav>
   </div>
