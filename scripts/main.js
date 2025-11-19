@@ -508,7 +508,8 @@ function initButtons() {
         console.log('📅 Book a Demo clicked');
         
         // Check if we're on homepage
-        const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname.endsWith('/');
+        const pathname = window.location.pathname;
+        const isHomepage = pathname === '/' || pathname === '/index.html' || pathname.endsWith('/') || pathname.endsWith('index.html') || pathname.split('/').pop() === '' || pathname.split('/').pop() === 'index.html';
         
         if (isHomepage) {
           // Scroll to final CTA on homepage
@@ -522,7 +523,7 @@ function initButtons() {
           }
         } else {
           // Navigate to company page contact section
-          window.location.href = '/company.html#contact';
+          window.location.href = 'company.html#contact';
         }
       });
     }
