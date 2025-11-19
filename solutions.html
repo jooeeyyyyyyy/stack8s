@@ -228,9 +228,163 @@
       </div>
     </section>
 
-    
+    <!-- How It Works -->
+    <section class="how-it-works section-foreground" id="how-it-works">
+      <div class="section__container">
+        <div class="how-it-works__header">
+          <span class="eyebrow">How It Works</span>
+          <h2 class="section__heading section__heading--centered">
+            From idea to production<br>in five steps
+          </h2>
+        </div>
+        
+        <div class="steps-carousel">
+          <!-- Left side - Static text content -->
+          <div class="steps-carousel__text">
+            <div class="steps-carousel__text-content" data-step="0" data-active="true">
+              <h3 class="step-slide__title">Step 1 - Core Zone</h3>
+              <p class="step-slide__description">
+                Set up your <strong>environment</strong> (cluster) and select your <strong>Core Zone</strong> – 
+                the foundational location where your <strong>control plane</strong> (master nodes) will reside.
+              </p>
+              <p class="step-slide__description">
+                This is the <strong>brain</strong> of your compute cluster, responsible for managing 
+                <strong>workloads, networking, and orchestration</strong>.
+              </p>
+              <p class="step-slide__tip">💡 Tip: You can add more zones and nodes later</p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="1" data-active="false">
+              <h3 class="step-slide__title">Step 2 - Projects</h3>
+              <p class="step-slide__description">
+                Projects are your first layer of multi-tenancy, designed to keep environments clean, 
+                secure, and organized. Each project is <strong>network-isolated</strong> from the others 
+                and acts as a container for related <strong>Stacks</strong>.
+              </p>
+              <p class="step-slide__tip">
+                📦 Use projects to separate teams, clients, or environments while maintaining full isolation and control.
+              </p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="2" data-active="false">
+              <h3 class="step-slide__title">Step 3 - Stacks</h3>
+              <p class="step-slide__description">
+                <strong>Stacks</strong> (mapped to Kubernetes namespaces) are your second layer of 
+                multi-tenancy. They act as <strong>virtual clusters</strong> within your project, used to 
+                organize and isolate compute resources, workloads, and configurations.
+              </p>
+              <p class="step-slide__tip">
+                🧩 Each Stack gives you fine-grained control over deployments—ideal for separating teams, 
+                applications, or environments within the same project.
+              </p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="3" data-active="false">
+              <h3 class="step-slide__title">Step 4 - Add Components</h3>
+              <p class="step-slide__description">
+                Explore the <strong>Component Marketplace</strong> to supercharge your stack. 
+                Choose from <strong>100+ pre-packaged components</strong>—including Ollama, ChromaDB, Kafka, 
+                TensorFlow, and RStudio—or bring your own <strong>custom container</strong>.
+              </p>
+              <p class="step-slide__tip">
+                🔧 Whether you're building ML pipelines, deploying agents, or spinning up dev tools, 
+                plug-and-play components make setup instant and scalable.
+              </p>
+            </div>
+            
+            <div class="steps-carousel__text-content" data-step="4" data-active="false">
+              <h3 class="step-slide__title">Step 5 - Scale Instantly</h3>
+              <p class="step-slide__description">
+                Horizontal scaling with GPUs, CPUs, and storage has never been simpler. 
+                Stack8s auto-scales your infrastructure based on demand, ensuring optimal 
+                performance and cost efficiency.
+              </p>
+              <p class="step-slide__tip">
+                📈 Scale up for training workloads, scale down during idle times—Stack8s handles it automatically.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Right side - Sliding visual cards -->
+          <div class="steps-carousel__visuals">
+            <div class="steps-carousel__track" id="steps-track">
+              
+              <article class="step-slide" data-active="true">
+                <div class="step-visual-card step-visual-card--1">
+                  <span class="step-visual-card__number">01</span>
+                  <span class="step-visual-card__label">Core Zone Selection</span>
+                  <p class="step-visual-card__text">
+                    This zone will host your <strong>control plane</strong> and a few <strong>worker nodes</strong> to get you started
+                  </p>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--2">
+                  <span class="step-visual-card__number">02</span>
+                  <span class="step-visual-card__label">Projects</span>
+                  <p class="step-visual-card__text">
+                    These are <strong>network isolated</strong> from each other and can have <strong>resource quotas</strong> for billing
+                  </p>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--3">
+                  <span class="step-visual-card__number">03</span>
+                  <span class="step-visual-card__label">Stack</span>
+                  <p class="step-visual-card__text">
+                    Create a Stack inside your Project
+                  </p>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--4">
+                  <span class="step-visual-card__number">04</span>
+                  <span class="step-visual-card__label">Add Components</span>
+                  <ul class="step-visual-card__list">
+                    <li>• ollama</li>
+                    <li>• Chroma DB</li>
+                    <li>• Kafka</li>
+                    <li>• tensorflow</li>
+                    <li>• RStudio</li>
+                  </ul>
+                </div>
+              </article>
+              
+              <article class="step-slide" data-active="false">
+                <div class="step-visual-card step-visual-card--5">
+                  <span class="step-visual-card__number">05</span>
+                  <span class="step-visual-card__label">Scale Up Instantly</span>
+                  <p class="step-visual-card__text">
+                    Horizontal scaling with GPUs, CPUs, and storage has never been simpler
+                  </p>
+                </div>
+              </article>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="slider__controls">
+          <button class="slider__arrow slider__arrow--prev" aria-label="Previous step">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="slider__dots" id="steps-dots"></div>
+          <button class="slider__arrow slider__arrow--next" aria-label="Next step">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Solution Blocks -->
-    <!-- Solution Blocks -->
+    <!-- Solution Blocks - COMMENTED OUT
     <section class="platform-overview section-foreground" id="solution-blocks">
       <div class="section__container">
         <div class="feature-cards">
@@ -273,6 +427,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <!-- Pricing Teaser -->
     <section class="platform-overview section-background">
