@@ -1,6 +1,45 @@
 /* =====================================================
-   STACK8S - SIMPLE WORKING SLIDERS
+   STACK8S - SIMPLE WORKING SLIDERS WITH MOBILE TOUCH
    ===================================================== */
+
+// =====================================================
+// TOUCH/SWIPE UTILITY FOR MOBILE
+// =====================================================
+
+function addSwipeSupport(element, onSwipeLeft, onSwipeRight) {
+  if (!element) return;
+  
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+  
+  const minSwipeDistance = 50; // Minimum distance for a swipe
+  
+  element.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+  
+  element.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    
+    const xDiff = touchStartX - touchEndX;
+    const yDiff = Math.abs(touchStartY - touchEndY);
+    
+    // Only trigger swipe if horizontal movement is greater than vertical
+    if (Math.abs(xDiff) > yDiff && Math.abs(xDiff) > minSwipeDistance) {
+      if (xDiff > 0) {
+        // Swipe left (next)
+        onSwipeLeft?.();
+      } else {
+        // Swipe right (prev)
+        onSwipeRight?.();
+      }
+    }
+  }, { passive: true });
+}
 
 // =====================================================
 // HEADER
@@ -152,13 +191,88 @@ function initUseCasesCarousel() {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
+  // Add swipe support for mobile
+  addSwipeSupport(track.parentElement, next, prev);
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') prev();
     if (e.key === 'ArrowRight') next();
   });
 
   updateCards();
-  console.log('✓ Use Cases: 4 cards with crossfade, 4 dots');
+  console.log('✓ Use Cases: 4 cards with crossfade, 4 dots + touch swipe');
+}
+
+// =====================================================
+// PRICING PREVIEW SLIDER (Homepage)
+// 3 cards, show 2 at a time, 2 positions, 2 dots
+// =====================================================
+
+function initPricingPreviewSlider() {
+  const track = document.getElementById('pricing-preview-track');
+  const pricingSection = document.getElementById('pricing-preview');
+  const prevBtn = pricingSection?.querySelector('.slider__arrow--prev');
+  const nextBtn = pricingSection?.querySelector('.slider__arrow--next');
+  const dotsContainer = document.getElementById('pricing-preview-dots');
+
+  if (!track) return;
+
+  const cards = Array.from(track.children);
+  const totalCards = cards.length; // 4
+  const cardsVisible = 2;
+  const totalPositions = totalCards - cardsVisible + 1; // 4 - 2 + 1 = 3
+  let currentPosition = 0;
+
+  // Create dots (one per position)
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalPositions; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'slider__dot';
+      dot.setAttribute('aria-label', `Position ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    const cardWidth = cards[0]?.offsetWidth || 0;
+    const gap = 40;
+    const moveDistance = cardWidth + gap;
+    const offset = -currentPosition * moveDistance;
+    
+    track.style.transform = `translateX(${offset}px)`;
+    
+    const dots = dotsContainer?.children || [];
+    Array.from(dots).forEach((dot, i) => {
+      dot.classList.toggle('slider__dot--active', i === currentPosition);
+    });
+  }
+
+  function goTo(position) {
+    currentPosition = Math.max(0, Math.min(position, totalPositions - 1));
+    updateSlider();
+  }
+
+  function next() {
+    if (currentPosition < totalPositions - 1) {
+      goTo(currentPosition + 1);
+    }
+  }
+
+  function prev() {
+    if (currentPosition > 0) {
+      goTo(currentPosition - 1);
+    }
+  }
+
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', next);
+
+  addSwipeSupport(track.parentElement, next, prev);
+  window.addEventListener('resize', updateSlider);
+  setTimeout(updateSlider, 100);
+  console.log('✓ Pricing Preview: 4 cards, 2 visible, 3 positions, 3 dots + touch swipe');
 }
 
 // =====================================================
@@ -167,6 +281,12 @@ function initUseCasesCarousel() {
 // =====================================================
 
 function initPricingSlider() {
+  // Check for homepage preview slider first
+  const previewTrack = document.getElementById('pricing-preview-track');
+  if (previewTrack) {
+    initPricingPreviewSlider();
+  }
+  
   const track = document.getElementById('pricing-track');
   const prevBtn = document.querySelector('.pricing .slider__arrow--prev');
   const nextBtn = document.querySelector('.pricing .slider__arrow--next');
@@ -228,12 +348,15 @@ function initPricingSlider() {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
+  // Add swipe support for mobile
+  addSwipeSupport(track.parentElement, next, prev);
+
   // Recalculate on resize
   window.addEventListener('resize', updateSlider);
 
   // Initialize after layout
   setTimeout(updateSlider, 100);
-  console.log('✓ Pricing: 4 cards, 2 visible, 3 positions, 3 dots');
+  console.log('✓ Pricing: 4 cards, 2 visible, 3 positions, 3 dots + touch swipe');
 }
 
 // =====================================================
@@ -259,6 +382,81 @@ function initPlatformDiagram() {
 }
 
 // =====================================================
+// ANIMATED NAVBAR (DESKTOP)
+// =====================================================
+
+function initAnimatedNavbar() {
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  const navbar = document.querySelector('.navbar');
+  const navItems = document.querySelectorAll('.navbar__item');
+  
+  if (!navbar || !navbarWrapper) return;
+  
+  // Use CSS :hover for dropdown visibility - it handles the bridge automatically
+  navItems.forEach(item => {
+    const dropdown = item.querySelector('.navbar__dropdown');
+    if (!dropdown) return;
+    
+    // Just add the is-active class for any additional JS-based styling
+    // CSS :hover will handle the actual show/hide
+    item.addEventListener('mouseenter', () => {
+      dropdown.classList.add('is-active');
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      // Small delay before removing active class
+      setTimeout(() => {
+        // Check if mouse is still over dropdown
+        if (!dropdown.matches(':hover')) {
+          dropdown.classList.remove('is-active');
+        }
+      }, 150);
+    });
+    
+    // Also handle dropdown direct hover
+    dropdown.addEventListener('mouseleave', () => {
+      setTimeout(() => {
+        if (!item.matches(':hover')) {
+          dropdown.classList.remove('is-active');
+        }
+      }, 150);
+    });
+  });
+  
+  // Auto-hide navbar on scroll down
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  
+  function updateNavbar() {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      navbarWrapper.classList.add('navbar-hidden');
+      // Close all dropdowns when hiding
+      document.querySelectorAll('.navbar__dropdown').forEach(dropdown => {
+        dropdown.classList.remove('is-active');
+      });
+    } else {
+      navbarWrapper.classList.remove('navbar-hidden');
+    }
+    
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+  
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', onScroll, { passive: true });
+  
+  console.log('✓ Animated Navbar initialized');
+}
+
+// =====================================================
 // SMOOTH SCROLL
 // =====================================================
 
@@ -272,13 +470,29 @@ function initSmoothScroll() {
       const target = document.querySelector(href);
       
       if (target) {
+        // Account for navbar height (desktop) or header height (mobile)
+        const offset = window.innerWidth > 1024 ? 120 : 100;
         window.scrollTo({
-          top: target.offsetTop - 100,
+          top: target.offsetTop - offset,
           behavior: 'smooth'
         });
       }
     });
   });
+  
+  // Handle hash navigation on page load (for cross-page links like /company.html#contact)
+  if (window.location.hash) {
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        const offset = window.innerWidth > 1024 ? 120 : 100;
+        window.scrollTo({
+          top: target.offsetTop - offset,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  }
 }
 
 // =====================================================
@@ -286,18 +500,35 @@ function initSmoothScroll() {
 // =====================================================
 
 function initButtons() {
-  // All "Book a Demo" buttons
-  document.querySelectorAll('.btn-primary').forEach(button => {
+  // All "Book a Demo" buttons (including navbar)
+  document.querySelectorAll('.btn-primary, button').forEach(button => {
     if (button.textContent.includes('Book') || button.textContent.includes('Demo')) {
       button.addEventListener('click', (e) => {
         e.preventDefault();
         console.log('📅 Book a Demo clicked');
         
-        // Opens typeform :D
-        alert('Opens typeform :D');
+        // Check if we're on homepage
+        const isHomepage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname.endsWith('/');
+        
+        if (isHomepage) {
+          // Scroll to final CTA on homepage
+          const finalCta = document.getElementById('final-cta');
+          if (finalCta) {
+            const offset = window.innerWidth > 1024 ? 120 : 100;
+            window.scrollTo({
+              top: finalCta.offsetTop - offset,
+              behavior: 'smooth'
+            });
+          }
+        } else {
+          // Navigate to company page contact section
+          window.location.href = '/company.html#contact';
+        }
       });
     }
   });
+  
+  console.log('✓ Buttons initialized');
 }
 
 // =====================================================
@@ -305,11 +536,88 @@ function initButtons() {
 // =====================================================
 
 // =====================================================
+// PROVIDERS PREVIEW CAROUSEL (Homepage)
+// =====================================================
+
+function initProvidersPreviewCarousel() {
+  const track = document.getElementById('providers-preview-track');
+  const pricingSection = document.getElementById('pricing-preview');
+  const prevBtn = pricingSection?.querySelector('.providers-carousel .slider__arrow--prev');
+  const nextBtn = pricingSection?.querySelector('.providers-carousel .slider__arrow--next');
+  const dotsContainer = document.getElementById('providers-preview-dots');
+
+  if (!track) return;
+
+  const cards = Array.from(track.children);
+  const totalCards = cards.length; // 4
+  const cardsVisible = 3; // Show 3 at a time
+  const totalPositions = totalCards - cardsVisible + 1; // 4 - 3 + 1 = 2
+  let currentPosition = 0;
+
+  // Create dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalPositions; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'slider__dot';
+      dot.setAttribute('aria-label', `Position ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    const cardWidth = cards[0]?.offsetWidth || 0;
+    const gap = 32; // 2rem = 32px
+    const moveDistance = cardWidth + gap;
+    const offset = -currentPosition * moveDistance;
+    
+    track.style.transform = `translateX(${offset}px)`;
+    
+    const dots = dotsContainer?.children || [];
+    Array.from(dots).forEach((dot, i) => {
+      dot.classList.toggle('slider__dot--active', i === currentPosition);
+    });
+  }
+
+  function goTo(position) {
+    currentPosition = Math.max(0, Math.min(position, totalPositions - 1));
+    updateSlider();
+  }
+
+  function next() {
+    if (currentPosition < totalPositions - 1) {
+      goTo(currentPosition + 1);
+    }
+  }
+
+  function prev() {
+    if (currentPosition > 0) {
+      goTo(currentPosition - 1);
+    }
+  }
+
+  prevBtn?.addEventListener('click', prev);
+  nextBtn?.addEventListener('click', next);
+
+  addSwipeSupport(track.parentElement, next, prev);
+  window.addEventListener('resize', updateSlider);
+  setTimeout(updateSlider, 100);
+  console.log('✓ Providers Preview: 4 cards, 3 visible, 2 positions + touch swipe');
+}
+
+// =====================================================
 // CLOUD PROVIDERS CAROUSEL
 // Shows 3 cards at a time, slides by 1
 // =====================================================
 
 function initProvidersCarousel() {
+  // Check for homepage preview carousel first
+  const previewTrack = document.getElementById('providers-preview-track');
+  if (previewTrack) {
+    initProvidersPreviewCarousel();
+  }
+  
   const track = document.getElementById('providers-track');
   const prevBtn = document.querySelector('.cloud-integrations .slider__arrow--prev');
   const nextBtn = document.querySelector('.cloud-integrations .slider__arrow--next');
@@ -369,10 +677,13 @@ function initProvidersCarousel() {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
+  // Add swipe support for mobile
+  addSwipeSupport(track.parentElement, next, prev);
+
   window.addEventListener('resize', updateSlider);
   setTimeout(updateSlider, 100);
   
-  console.log('✓ Providers: 4 cards, 3 visible, 2 positions');
+  console.log('✓ Providers: 4 cards, 3 visible, 2 positions + touch swipe');
 }
 
 // =====================================================
@@ -444,8 +755,11 @@ function initStepsCarousel() {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
+  // Add swipe support for mobile
+  addSwipeSupport(track.parentElement, next, prev);
+
   updateContent();
-  console.log(`✓ Steps Carousel: ${totalSlides} steps - text swaps, cards slide`);
+  console.log(`✓ Steps Carousel: ${totalSlides} steps - text swaps, cards slide + touch swipe`);
 }
 
 // =====================================================
@@ -507,23 +821,193 @@ function initBenefitsMap() {
   prevBtn?.addEventListener('click', prev);
   nextBtn?.addEventListener('click', next);
 
+  // Add swipe support for mobile
+  const benefitsSection = document.querySelector('.benefits-map');
+  addSwipeSupport(benefitsSection, next, prev);
+
   updateStage();
-  console.log(`✓ Benefits Map: ${totalStages} stages with world map`);
+  console.log(`✓ Benefits Map: ${totalStages} stages with world map + touch swipe`);
+}
+
+// =====================================================
+// ACTIVE NAVIGATION STATE
+// =====================================================
+
+function initActiveNavigation() {
+  // Get current page path
+  let currentPath = window.location.pathname;
+  // Normalize path: remove leading/trailing slashes and handle index.html
+  currentPath = currentPath.replace(/^\/+|\/+$/g, '');
+  if (!currentPath || currentPath === 'index.html') {
+    currentPath = '';
+  }
+  
+  const isHomepage = !currentPath || currentPath === 'index.html' || currentPath === '';
+  
+  // Don't highlight anything on homepage
+  if (isHomepage) {
+    return;
+  }
+  
+  // Map of page paths to navigation items (normalized)
+  const pageMap = {
+    'platform.html': { main: 'Platform', type: 'dropdown', sub: 'Overview' },
+    'platform-components.html': { main: 'Platform', type: 'dropdown', sub: 'Components' },
+    'solutions.html': { main: 'Solutions', type: 'link' },
+    'pricing.html': { main: 'Pricing', type: 'link' },
+    'resources.html': { main: 'About', type: 'dropdown', sub: 'Resources' },
+    'company.html': { main: 'About', type: 'dropdown', sub: 'Company' },
+  };
+  
+  const currentPage = pageMap[currentPath];
+  if (!currentPage) {
+    console.log(`⚠ No active navigation mapping for: ${currentPath}`);
+    return;
+  }
+  
+  // Highlight desktop navbar
+  const navbarLinks = document.querySelectorAll('.navbar__link');
+  const navbarItems = document.querySelectorAll('.navbar__item');
+  const dropdownLinks = document.querySelectorAll('.navbar__dropdown-link');
+  
+  navbarLinks.forEach(link => {
+    const linkText = link.textContent.trim();
+    if (currentPage.type === 'link' && linkText === currentPage.main) {
+      link.classList.add('active');
+      link.closest('.navbar__item')?.classList.add('active');
+    } else if (currentPage.type === 'dropdown' && linkText === currentPage.main) {
+      link.classList.add('active');
+      link.closest('.navbar__item')?.classList.add('active');
+    }
+  });
+  
+  // Highlight dropdown items
+  if (currentPage.type === 'dropdown' && currentPage.sub) {
+    dropdownLinks.forEach(link => {
+      if (link.textContent.trim() === currentPage.sub) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  // Highlight mobile menu
+  const mobileLinks = document.querySelectorAll('.mobile-menu__link, .header__nav-list a');
+  mobileLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href) {
+      // Normalize both paths for comparison
+      const normalizedHref = href.replace(/^\/+|\/+$/g, '') || 'index.html';
+      const normalizedCurrent = currentPath || 'index.html';
+      
+      // Match if paths are equal (handles both /page.html and page.html)
+      if (normalizedHref === normalizedCurrent || 
+          href === `/${currentPath}` ||
+          href === currentPath ||
+          (normalizedHref === 'index.html' && normalizedCurrent === '')) {
+        link.classList.add('active');
+      }
+    }
+  });
+  
+  // Also highlight mobile menu items that match the current page by text
+  // This handles the case where Resources/Company are nested under About
+  if (currentPage.type === 'dropdown' && currentPage.sub) {
+    mobileLinks.forEach(link => {
+      const linkText = link.textContent.trim();
+      if (linkText === currentPage.sub) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  console.log(`✓ Active navigation: ${currentPage.main}${currentPage.sub ? ` > ${currentPage.sub}` : ''}`);
+}
+
+// =====================================================
+// FAQ COLLAPSIBLES / ACCORDION
+// =====================================================
+
+function initFaqCollapsibles() {
+  const collapsibles = document.querySelectorAll('[data-collapsible]');
+  
+  if (collapsibles.length === 0) return;
+  
+  collapsibles.forEach(collapsible => {
+    const header = collapsible.querySelector('.faq-collapsible__header');
+    const content = collapsible.querySelector('.faq-collapsible__content');
+    const inner = collapsible.querySelector('.faq-collapsible__inner');
+    
+    if (!header || !content || !inner) return;
+    
+    // Set initial state
+    collapsible.setAttribute('data-expanded', 'false');
+    header.setAttribute('aria-expanded', 'false');
+    
+    // Calculate content height for smooth animation
+    let contentHeight = 0;
+    
+    function updateContentHeight() {
+      // Temporarily expand to measure
+      content.style.maxHeight = 'none';
+      contentHeight = inner.offsetHeight;
+      content.style.maxHeight = collapsible.getAttribute('data-expanded') === 'true' ? `${contentHeight}px` : '0px';
+    }
+    
+    // Initial measurement
+    updateContentHeight();
+    
+    // Recalculate on resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (collapsible.getAttribute('data-expanded') === 'true') {
+          updateContentHeight();
+        }
+      }, 100);
+    });
+    
+    header.addEventListener('click', () => {
+      const isExpanded = collapsible.getAttribute('data-expanded') === 'true';
+      
+      // Update state
+      collapsible.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
+      header.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+      
+      // Update height
+      if (!isExpanded) {
+        // Expanding: measure first, then animate
+        updateContentHeight();
+        requestAnimationFrame(() => {
+          content.style.maxHeight = `${contentHeight}px`;
+        });
+      } else {
+        // Collapsing: animate to 0
+        content.style.maxHeight = '0px';
+      }
+    });
+  });
+  
+  console.log(`✓ FAQ Collapsibles: ${collapsibles.length} items initialized`);
 }
 
 function init() {
   console.log('Stack8s - Initializing...');
   
+  initAnimatedNavbar();
   initHeader();
   initMobileMenu();
+  initActiveNavigation();
+  initFaqCollapsibles();
   initProvidersCarousel();
   initBenefitsMap();
   initUseCasesCarousel();
-  initPricingSlider();
+  initPricingSlider(); // This will also init preview slider if on homepage
   initPlatformDiagram();
   initStepsCarousel();
   initSmoothScroll();
   initButtons();
+  initRadialOrbitalTimeline();
   
   console.log('Stack8s - Ready!');
 }

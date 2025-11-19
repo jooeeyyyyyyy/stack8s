@@ -159,14 +159,14 @@ class DotBackground {
         // Slow moving wave on sides
         float waveSpeed = time * 0.3;
         float wave = sin(uv.y * 8.0 + waveSpeed) * 0.5 + 0.5;
-        float sideAnimation = sideGlow * wave * 0.4;
+        float sideAnimation = sideGlow * wave * 0.7;
         
         // Combine mouse glow and side glow
         float totalGlow = max(animatedMouseGlow, sideAnimation);
         
         // Mix white dots with blue glow
         vec3 finalColor = mix(dotColor, glowColor, totalGlow);
-        float finalOpacity = dot * (dotOpacity + totalGlow * 0.9);
+        float finalOpacity = dot * (dotOpacity + totalGlow * 1.1);
         
         gl_FragColor = vec4(finalColor, finalOpacity);
       }
